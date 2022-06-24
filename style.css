@@ -1,8 +1,80 @@
+.container {
+  background-image: url();
+}
+
 .form-calcul .section-calcul {
   margin: 15px;
 }
 
-.form-container {
+.form-container, .validation {
   display: flex;
   justify-content: space-around;
+}
+
+button {
+  font-size: 1.3em;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 3px solid #1c6313c7;
+  border-radius: 5px;
+  background-color: #bacc1721;
+  color:#1c6313c7;
+  font-weight: bold;
+}
+
+button:hover {
+  animation: growUp 2s 0.5s infinite;
+  border: 3px solid #1c6313c7 ;
+  border-radius: 5px;
+  background-color: #bacc1721;
+  color:#1c6313c7;
+  font-weight: bold;
+}
+
+@keyframes growUp {
+  from {font-size: 1.3em; padding: 5px; padding-left: 10px; padding-right: 10px;}
+  50% {font-size: 1.5em; padding: 10px; padding-left: 15px; padding-right: 15px;}
+  to {font-size: 1.3em; padding: 5px; padding-left: 10px; padding-right: 10px;}
+}
+
+h1 {
+  text-align: center;
+  color: #1c6313c7;
+}
+
+fieldset {
+  border: solid 3px #1c6313c7;
+  border-radius: 5px;
+  background-color: #bacc1721;
+}
+
+legend {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #1c6313c7;
+}
+
+.brut, .taxes, .net {
+  display: block;
+  text-align: center;
+  height: 100px;
+  width: 70px;
+  margin: 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 1.1em;
+}
+
+.brut {
+  background-color: #d11f2ea2;
+}
+
+.taxes {
+  background-color: #272222a2;
+}
+
+.net {
+  background-color: #148f1aa2;
 }

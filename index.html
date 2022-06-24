@@ -11,57 +11,73 @@
     <header>
       <h1>Freelance Calculator</h1>
     </header>
-    <form class="form-calcul">
-      <div class="section-calcul pricing">
-        <fieldset class="form-container">
-          <legend>Vos tarifs</legend>
-          <div class="form-field">
-            <label>TH</label>
-            <input name="TH" type="number" placeholder="Ex: 70">
-          </div>
-          <div class="form-field">
-            <label>TJM</label>
-            <input name="TJM" type="number" placeholder="Ex: 740">
-          </div>
-          <div class="form-field">
-            <label>EXTRAS</label>
-            <input name="Extras" type="number" placeholder="Ex: 47">
-          </div>
-        </fieldset>
-      </div>
-      <div class="section-calcul quantity">
-        <fieldset class="form-container">
-          <legend>Vos quantités</legend>
-          <div class="form-field">
-            <label>TH</label>
-            <input name="quantity-TH" type="number" placeholder="Ex: 140">
-          </div>
-          <div class="form-field">
-            <label>TJM</label>
-            <input name="quantity-TJM" type="number" placeholder="Ex: 30">
-          </div>
-          <div class="form-field">
-            <label>EXTRAS</label>
-            <input name="quantity-Extras" type="number" placeholder="Ex: 7">
-          </div>
-        </fieldset>
-      </div>
-      <div class="section-calcul expenses">
-        <fieldset class="form-container">
-          <legend>Vos charges</legend>
-          <div class="form-field">
-            <label>Charges</label>
-            <input name="Charges" type="number" placeholder="Ex: 240">
-          </div>
-        </fieldset>
-      </div>
-      <div class="section-calcul validation">
-        <button>Calculer</button>
-      </div>
-      <div class="section-calcul result">
-        Ici le résultat
-      </div>
-    </form>
+    <main class="container">
+      <form class="form-calcul" id="form-calcul-gain">
+        <div class="section-calcul pricing">
+          <fieldset class="form-container">
+            <legend>Vos tarifs</legend>
+            <div class="form-field">
+              <label>TH</label>
+              <input name="TH" type="number" placeholder="Ex: 70" />
+            </div>
+            <div class="form-field">
+              <label>TJM</label>
+              <input name="TJM" type="number" placeholder="Ex: 740" />
+            </div>
+            <div class="form-field">
+              <label>EXTRAS</label>
+              <input name="Extras" type="number" placeholder="Ex: 47" />
+            </div>
+          </fieldset>
+        </div>
+        <div class="section-calcul quantity">
+          <fieldset class="form-container">
+            <legend>Vos quantités</legend>
+            <div class="form-field">
+              <label>TH</label>
+              <input name="quantity-TH" type="number" placeholder="Ex: 140" />
+            </div>
+            <div class="form-field">
+              <label>TJM</label>
+              <input name="quantity-TJM" type="number" placeholder="Ex: 30" />
+            </div>
+            <div class="form-field">
+              <label>EXTRAS</label>
+              <input name="quantity-Extras" type="number" placeholder="Ex: 7" />
+            </div>
+          </fieldset>
+        </div>
+        <div class="section-calcul expenses">
+          <fieldset class="form-container">
+            <legend>Vos charges</legend>
+            <div class="form-field">
+              <label>Charges</label>
+              <input name="Charges" type="number" placeholder="Ex: 240" />
+            </div>
+          </fieldset>
+        </div>
+        <div class="section-calcul validation">
+          <button onclick="calculGain()" type="button">Calculer</button>
+        </div>
+        <div class="section-calcul result">
+          <fieldset class="form-container">
+            <legend>Résultats</legend>
+            <div class="form-field brut">
+              <p>Brut</p>
+              <span id="resultat-brut">0€</span>
+            </div>
+            <div class="form-field taxes">
+              <p>Taxes</p>
+              <p id="resultat-taxes">0€</p>
+            </div>
+            <div class="form-field net">
+              <p>Net</p>
+              <p id="resultat-net">0€</p>
+            </div>
+          </fieldset>
+        </div>
+      </form>
+    </main>
     <script src="script.js"></script>
   </body>
 </html>
