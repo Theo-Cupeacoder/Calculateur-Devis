@@ -1,5 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+  background-image: url(ressources/photo-1655212874347-7b8bc1227da7.avif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'DM Serif Display', serif;
+  letter-spacing: 2px;
+}
+
 .container {
-  background-image: url();
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-calcul {
+  width: 600px;
+  height: auto;
 }
 
 .form-calcul .section-calcul {
@@ -9,27 +31,70 @@
 .form-container, .validation {
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
-button {
-  font-size: 1.3em;
-  padding: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border: 3px solid #1c6313c7;
-  border-radius: 5px;
-  background-color: #bacc1721;
-  color:#1c6313c7;
-  font-weight: bold;
+.form-field {
+  /* mettre les labels au dessus des inputs */
 }
 
-button:hover {
-  animation: growUp 2s 0.5s infinite;
-  border: 3px solid #1c6313c7 ;
-  border-radius: 5px;
-  background-color: #bacc1721;
-  color:#1c6313c7;
-  font-weight: bold;
+.glowing-button {
+  font-size: 1.5em;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(32, 31, 31);
+  color: white;
+  position: relative;
+  cursor: pointer;
+  z-index: 0;
+}
+
+.glowing-button:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  background-size: 400%;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  top: -2px;
+  left: -2px;
+  z-index: -1;
+  opacity: 0;
+  animation: glowing 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glowing-button:active {
+  color: black;
+}
+
+.glowing-button:active:after {
+  background: transparent;
+}
+
+.glowing-button:hover:before {
+  opacity: 1;
+}
+
+.glowing-button:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  background: rgb(32, 31, 31);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% {background-position: 0 0;}
+  50% {background-position: 400% 0;}
+  100% {background-position: 0 0;}
 }
 
 @keyframes growUp {
@@ -40,20 +105,33 @@ button:hover {
 
 h1 {
   text-align: center;
-  color: #1c6313c7;
+  color: white;
 }
 
 fieldset {
-  border: solid 3px #1c6313c7;
+  height: 125px;
+  border: solid 3px #4d574cc7;
   border-radius: 5px;
-  background-color: #bacc1721;
+  background-color: rgb(32, 31, 31, 0.5);
 }
 
 legend {
   text-align: center;
   font-size: 1.5em;
   font-weight: bold;
-  color: #1c6313c7;
+  color: white;
+}
+
+label {
+  color: white;
+}
+
+input {
+  width: 80px;
+  height: 30px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: none;
 }
 
 .brut, .taxes, .net {
@@ -69,12 +147,15 @@ legend {
 
 .brut {
   background-color: #d11f2ea2;
+  color: white;
 }
 
 .taxes {
   background-color: #272222a2;
+  color: white;
 }
 
 .net {
   background-color: #148f1aa2;
+  color: white;
 }
