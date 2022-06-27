@@ -6,15 +6,15 @@ html, body {
   height: 100vh;
   width: 100%;
   background-image: url(ressources/photo-1655212874347-7b8bc1227da7.avif);
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-position: fixed;
+  background-size: 100rem;
+  height: max-content;
   font-family: 'DM Serif Display', serif;
   letter-spacing: 2px;
 }
 
 .container {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
@@ -25,17 +25,34 @@ html, body {
 }
 
 .form-calcul .section-calcul {
-  margin: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
-.form-container, .validation {
+.form-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  padding: 20px;
+  z-index: 0;
+  position: relative;
+  border: none;
 }
 
-.form-field {
-  /* mettre les labels au dessus des inputs */
+.validation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+}
+
+label, input {
+  display: block;
 }
 
 .glowing-button {
@@ -50,7 +67,7 @@ html, body {
   z-index: 0;
 }
 
-.glowing-button:before {
+.glowing-button:before, .form-container:before {
   content: '';
   background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
   position: absolute;
@@ -67,19 +84,19 @@ html, body {
   border-radius: 10px;
 }
 
-.glowing-button:active {
+.glowing-button:active, .form-container:active {
   color: black;
 }
 
-.glowing-button:active:after {
+.glowing-button:active:after, .form-container:active:after {
   background: transparent;
 }
 
-.glowing-button:hover:before {
+.glowing-button:hover:before, .form-container:hover:before {
   opacity: 1;
 }
 
-.glowing-button:after {
+.glowing-button:after, .form-container:after {
   z-index: -1;
   content: '';
   position: absolute;
@@ -97,33 +114,28 @@ html, body {
   100% {background-position: 0 0;}
 }
 
-@keyframes growUp {
-  from {font-size: 1.3em; padding: 5px; padding-left: 10px; padding-right: 10px;}
+@keyframes glow {
+  from {}
   50% {font-size: 1.5em; padding: 10px; padding-left: 15px; padding-right: 15px;}
   to {font-size: 1.3em; padding: 5px; padding-left: 10px; padding-right: 10px;}
 }
 
 h1 {
-  text-align: center;
+  font-size: 2.5em;
   color: white;
-}
-
-fieldset {
-  height: 125px;
-  border: solid 3px #4d574cc7;
-  border-radius: 5px;
-  background-color: rgb(32, 31, 31, 0.5);
+  text-align: center;
 }
 
 legend {
   text-align: center;
-  font-size: 1.5em;
+  font-size: 2em;
   font-weight: bold;
   color: white;
 }
 
 label {
   color: white;
+  margin-bottom: 5px;
 }
 
 input {
@@ -132,13 +144,13 @@ input {
   font-size: 18px;
   border-radius: 10px;
   border: none;
+  text-align: center;
 }
 
 .brut, .taxes, .net {
-  display: block;
   text-align: center;
   height: 100px;
-  width: 70px;
+  width: 150px;
   margin: 15px;
   border: 1px solid black;
   border-radius: 5px;

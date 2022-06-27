@@ -34,10 +34,35 @@ function calculGain(){
   let chargeADeduire = (totalBrut * (charges / 100))
   let totalNet = totalBrut - chargeADeduire
 
-  document.getElementById('resultat-brut').innerText = totalBrut.toFixed(2) + ' €'
-  document.getElementById('resultat-taxes').innerText = chargeADeduire.toFixed(2) + ' €'
-  document.getElementById('resultat-net').innerText = totalNet.toFixed(2) + ' €' 
+  //Animer le résultat du Brut
+  animateCompteur('resultat-brut', totalBrut)
+  animateCompteur('resultat-taxes', chargeADeduire)
+  animateCompteur('resultat-net', totalNet) 
   
+}
+
+async function animateCompteur(idARemplacer, total){
+  let cpt = 0
+  let animationDuration = 100
+  let monElementHtmlDeResultat = document.getElementById(idARemplacer)
+
+
+  if (monElementHtmlDeResultat.innerText != total.toFixed(2) + ' €'){
+    let increment = Math.round(total / 10)
+    if (increment == 0){
+      increment = 1
+    }
+    while (cpt <= total){
+      monElementHtmlDeResultat.innerText = cpt.toFixed(2) + ' €'
+      await timer(animationDuration)
+      cpt = cpt + increment
+    }
+    monElementHtmlDeResultat.innerText =total.toFixed(2) + ' €'
+  }
+}
+
+function timer(ms){
+  return new Promise(res => setTimeout(res, ms))
 }
 
 function checkInputs(){
@@ -71,13 +96,10 @@ function getCookie(input){
     if (cookie.indexOf(name) === 0){
       //On a le bon cookie
       valeurCookie = cookie.substring(name.length)
-      console.log(valeurCookie)
-      
     }
   })
   return valeurCookie
 }
-//Mettre les valeurs dans les inputs
 
 //Ajout des événements
 let btn = document.getElementById('button-validation')
@@ -98,4 +120,3 @@ mesInputs.forEach(monInput => {
   monInput.addEventListener('change', calculGain)
   monInput.addEventListener('keyup', calculGain)
 })
-calculGain()
