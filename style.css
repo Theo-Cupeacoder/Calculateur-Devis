@@ -3,36 +3,68 @@
 html, body {
   margin: 0;
   padding: 0;
-  height: 100vh;
-  width: 100%;
+  color: white;
   background-image: url(ressources/photo-1655212874347-7b8bc1227da7.avif);
-  background-position: fixed;
-  background-size: 100rem;
-  height: max-content;
   font-family: 'DM Serif Display', serif;
   letter-spacing: 2px;
+  font-size: 20px;
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+h1 {
+  font-size: 3em;
 }
 
-.form-calcul {
-  width: 600px;
-  height: auto;
+main {
+  margin: 0;
 }
 
-.form-calcul .section-calcul {
-  margin-top: 15px;
-  margin-bottom: 15px;
+legend {
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+input {
+  width: 80px;
+  height: 30px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: none;
+  text-align: center;
+}
+
+.ttc, .taxes, .ht {
+  text-align: center;
+  height: 150px;
+  width: 200px;
+  margin: 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 1.1em;
+}
+
+.ttc {
+  background-color: #148f1aa2;
+}
+
+.taxes {
+  background-color: #272222a2;
+}
+
+.ht {
+  background-color: #d11f2ea2;
+}
+
+.form-field {
+  max-width: 200px;
+  margin: 5px;
 }
 
 .form-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
   width: 100%;
   height: auto;
   border-radius: 5px;
@@ -42,18 +74,8 @@ html, body {
   border: none;
 }
 
-.validation {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: auto;
-  padding: 20px;
-}
-
-label, input {
-  display: block;
-}
+/*  ||  Bouton arc-en-ciel   ||   */
+/*  \/                       \/   */
 
 .glowing-button {
   font-size: 1.5em;
@@ -118,56 +140,4 @@ label, input {
   from {}
   50% {font-size: 1.5em; padding: 10px; padding-left: 15px; padding-right: 15px;}
   to {font-size: 1.3em; padding: 5px; padding-left: 10px; padding-right: 10px;}
-}
-
-h1 {
-  font-size: 2.5em;
-  color: white;
-  text-align: center;
-}
-
-legend {
-  text-align: center;
-  font-size: 2em;
-  font-weight: bold;
-  color: white;
-}
-
-label {
-  color: white;
-  margin-bottom: 5px;
-}
-
-input {
-  width: 80px;
-  height: 30px;
-  font-size: 18px;
-  border-radius: 10px;
-  border: none;
-  text-align: center;
-}
-
-.brut, .taxes, .net {
-  text-align: center;
-  height: 100px;
-  width: 150px;
-  margin: 15px;
-  border: 1px solid black;
-  border-radius: 5px;
-  font-size: 1.1em;
-}
-
-.brut {
-  background-color: #d11f2ea2;
-  color: white;
-}
-
-.taxes {
-  background-color: #272222a2;
-  color: white;
-}
-
-.net {
-  background-color: #148f1aa2;
-  color: white;
 }

@@ -4,80 +4,76 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Freelance Calculator</title>
+    <title>Calculateur pour devis</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
-      <h1>Freelance Calculator</h1>
+      <h1 class="text-center mb-4">Calculateur pour devis</h1>
     </header>
-    <main class="container">
-      <form class="form-calcul" id="form-calcul-gain">
-        <div class="section-calcul pricing">
-          <fieldset class="form-container">
-            <legend>Vos tarifs</legend>
+    <main class="container-fluid d-flex justify-content-center text-center">
+      <form class="w-50" id="form-calcul-gain">
+          <fieldset class="form-container row justify-content-center mb-4">
+            <legend>Trajet</legend>
             <div class="form-field">
-              <label>Taux horaire</label>
-              <input class="form-control" name="TH" type="number" placeholder="Ex: 70" />
+              <label class="form-label">Temps Trajet</label>
+              <input class="form-control" name="tTrajet" type="number" placeholder="mn" />
             </div>
             <div class="form-field">
-              <label>Taux journalier</label>
-              <input class="form-control" name="TJM" type="number" placeholder="Ex: 740" />
+              <label class="form-label">Tarif Energie</label>
+              <input class="form-control" name="tEnergie" type="number" placeholder="€/L" />
             </div>
             <div class="form-field">
-              <label>Extras</label>
-              <input class="form-control" name="Extras" type="number" placeholder="Ex: 47" />
-            </div>
-          </fieldset>
-        </div>
-        <div class="section-calcul quantity">
-          <fieldset class="form-container">
-            <legend>Vos quantités</legend>
-            <div class="form-field">
-              <label>Nombre d'heures</label>
-              <input class="form-control" name="quantity-TH" type="number" placeholder="Ex: 140" />
-            </div>
-            <div class="form-field">
-              <label>Nombre de jours</label>
-              <input class="form-control" name="quantity-TJM" type="number" placeholder="Ex: 30" />
-            </div>
-            <div class="form-field">
-              <label>Nombre d'extras</label>
-              <input class="form-control" name="quantity-Extras" type="number" placeholder="Ex: 7" />
+              <label class="form-label">Nombre Km</label>
+              <input class="form-control" name="nbKilometre" type="number" placeholder="Km" />
             </div>
           </fieldset>
-        </div>
-        <div class="section-calcul expenses">
-          <fieldset class="form-container">
-            <legend>Vos charges</legend>
+          <fieldset class="form-container row justify-content-center align-items-end mb-4">
+            <legend>Service</legend>
             <div class="form-field">
-              <label>Charges</label>
-              <input class="form-control" name="Charges" type="number" placeholder="Ex: 240" />
+              <label class="form-label">Temps sur place</label>
+              <input class="form-control" name="tSurPlace" type="number" placeholder="mn" />
+            </div>
+            <div class="form-field">
+              <label class="form-label">Volume</label>
+              <input class="form-control" name="volume" type="number" placeholder="m3" />
             </div>
           </fieldset>
-        </div>
-        <div class="section-calcul validation">
-          <button class="glowing-button" id="button-validation" type="button">Calculer</button>
-        </div>
-        <div class="section-calcul result">
-          <fieldset class="form-container">
+          <fieldset class="form-container row justify-content-center mb-4">
+            <legend>Autre</legend>
+            <div class="form-field">
+              <label class="form-label">Promotion</label>
+              <input class="form-control" name="tPromotion" type="number" placeholder="%" />
+            </div>
+            <div class="form-field">
+              <label class="form-label">Charges</label>
+              <input class="form-control" name="charges" type="number" placeholder="%" />
+            </div>
+          </fieldset>
+          <button class="glowing-button my-3" id="button-validation" type="button">Calculer</button>
+          <fieldset class="row justify-content-center">
             <legend>Résultats</legend>
-            <div class="form-field brut">
-              <p>Brut</p>
-              <span id="resultat-brut">0€</span>
+            <div class="form-field col taxes">
+              <p>Promo</p>
+              <p id="resultat-promotion">0€</p>
             </div>
-            <div class="form-field taxes">
+            <div class="form-field col taxes">
               <p>Taxes</p>
               <p id="resultat-taxes">0€</p>
             </div>
-            <div class="form-field net">
-              <p>Net</p>
-              <p id="resultat-net">0€</p>
+            <div class="form-field col ttc">
+              <p>TTC</p>
+              <span id="resultat-TTC">0€</span>
+            </div>
+            <div class="form-field col ht">
+              <p>HT</p>
+              <p id="resultat-HT">0€</p>
             </div>
           </fieldset>
-        </div>
       </form>
     </main>
     <script src="script.js"></script>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

@@ -5,6 +5,10 @@
 //Animation ??
 //Envoyer en mail ??
 
+// Trajet -> Temps Trajet | Tarif Energie | Nombre Km
+// Service -> Temps sur place | Volume 
+// Autres -> Taux promotion | Taux de charges
+
 function calculGain(){
   //On vérifie si l'input est bien >= 0
   checkInputs();
@@ -15,29 +19,43 @@ function calculGain(){
   let formObj = new FormData(myForm);
   
   // On récupère les inputs de notre formulaire par leurs noms
-  let tauxHoraire = formObj.get('TH')
-  let tauxJournalier = formObj.get('TJM')
-  let extras = formObj.get('Extras')
+  let tempsTrajet = formObj.get('tTrajet')
+  let tarifEnergie = formObj.get('tEnergie')
+  let nbKilometre = formObj.get('nbKilometre')
 
-  let quantityTauxHoraire = formObj.get('quantity-TH')
-  let quantityTauxJournalier = formObj.get('quantity-TJM')
-  let quantityExtras = formObj.get('quantity-Extras')
+  let tempsSurPlace = formObj.get('tSurPlace')
+  let volume = formObj.get('volume')
 
-  let charges = formObj.get('Charges')
+  let tauxPromotion = formObj.get('tPromotion')
+  let charges = formObj.get('charges')
+
+  // Varibles de base
+      // Assurance (720€ / 50000km) + Entretien(1500€/100000km) 
+  let entretienCamion = (720 / 50000) + (1500/100000)
+    // Consommation par kilomètre
+  let consommationEnergie = (tarifEnergie / 12.5) + entretienCamion
+    // Taux horraire / 1 heure
+  let tauxMinute = 15 / 60
 
   //On commence le calcul
-  let gainHeure = tauxHoraire * quantityTauxHoraire;
-  let gainJour = tauxJournalier * quantityTauxJournalier;
-  let gainExtras = extras * quantityExtras;
 
-  let totalBrut = gainHeure + gainJour + gainExtras;
-  let chargeADeduire = (totalBrut * (charges / 100))
-  let totalNet = totalBrut - chargeADeduire
 
-  //Animer le résultat du Brut
-  animateCompteur('resultat-brut', totalBrut)
-  animateCompteur('resultat-taxes', chargeADeduire)
-  animateCompteur('resultat-net', totalNet) 
+
+  let tarifTravail = (tempsTrajet * tauxMinute) + (tempsSurPlace * tauxMinute);
+  let tarifConsommation = consommationEnergie * nbKilometre;
+
+  let totalTTC = (tarifTravail + tarifConsommation)
+  let promotion = totalTTC * (tauxPromotion / 100)
+  totalTTC -= promotion
+  let chargesAInclure = (totalTTC * (charges / 100))
+  totalTTC += chargesAInclure
+  let totalHT = totalTTC - chargesAInclure
+
+  //Animer le résultat
+  animateCompteur('resultat-promotion', promotion)
+  animateCompteur('resultat-taxes', chargesAInclure)
+  animateCompteur('resultat-TTC', totalTTC)
+  animateCompteur('resultat-HT', totalHT) 
   
 }
 
