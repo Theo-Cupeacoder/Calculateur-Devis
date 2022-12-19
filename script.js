@@ -30,10 +30,8 @@ function calculGain(){
   let charges = formObj.get('charges')
 
   // Varibles de base
-      // Assurance (720€ / 50000km) + Entretien(1500€/100000km) 
-  let entretienCamion = (720 / 50000) + (1500/100000)
-    // Consommation par kilomètre
-  let consommationEnergie = (tarifEnergie / 12.5) + entretienCamion
+    // Consommation par kilomètre (Selon le barème km de la BPI)
+  let consommationEnergie = 0.446
     // Taux horraire / 1 heure
   let tauxMinute = 15 / 60
 
