@@ -20,29 +20,25 @@ function calculGain(){
   
   // On récupère les inputs de notre formulaire par leurs noms
   let tempsTrajet = formObj.get('tTrajet')
-  let tarifEnergie = formObj.get('tEnergie')
   let nbKilometre = formObj.get('nbKilometre')
 
   let tempsSurPlace = formObj.get('tSurPlace')
-  let volume = formObj.get('volume')
 
   let tauxPromotion = formObj.get('tPromotion')
   let charges = formObj.get('charges')
 
   // Varibles de base
-    // Consommation par kilomètre (Selon le barème km de la BPI)
-  let consommationEnergie = 0.446
-    // Taux horraire / 1 heure
-  let tauxMinute = 15 / 60
+  let deplacement = 0.661
+  let tauxMinute = 25 / 60
 
   //On commence le calcul
 
 
 
   let tarifTravail = (tempsTrajet * tauxMinute) + (tempsSurPlace * tauxMinute);
-  let tarifConsommation = consommationEnergie * nbKilometre;
+  let tarifDeplacement = deplacement * nbKilometre;
 
-  let totalTTC = (tarifTravail + tarifConsommation)
+  let totalTTC = (tarifTravail + tarifDeplacement)
   let promotion = totalTTC * (tauxPromotion / 100)
   totalTTC -= promotion
   let chargesAInclure = (totalTTC * (charges / 100))
